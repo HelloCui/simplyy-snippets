@@ -10,10 +10,26 @@
     body: """
           Object.defineProperties(${1:obj},{
           \t"${2:property}": {
-          \t\tvalue: ${2:value},
-          \t\twritable: ${3:false},
-          \t\tenumerable: ${4:false},
-          \t\tconfigurable: ${5:false},
-          }
+          \t\tvalue: ${3:value},
+          \t\twritable: ${4:false},
+          \t\tenumerable: ${5:false},
+          \t\tconfigurable: ${6:false},
+          \t}
           })
           """
+  "Object.defineProperty":
+    prefix: "defineProperty"
+    body: """
+          Object.defineProperties(${1:obj},'${2:prop}',{
+          \tvalue: ${3:value},
+          \twritable: ${4:false},
+          \tenumerable: ${5:false},
+          \tconfigurable: ${6:false},
+          }})
+          """
+  "Object.getOwnPropertyDescriptor":
+    prefix: "getOwnPropertyDescriptor"
+    body: "Object.getOwnPropertyDescriptor(${1:obj},'${2:prop}')"
+  "Object.getOwnPropertyNames":
+    prefix: "getOwnPropertyNames"
+    body: "Object.getOwnPropertyNames(${1:obj})"
