@@ -1,4 +1,19 @@
 ".source.js, .source.ts, .source.tsx":
-    "Object.assign":
-        prefix: "assign"
-        body: "assign(${1:dest}, ${2:source})"
+  "Object.assign":
+    prefix: "assign"
+    body: "Object.assign(${1:dest}, ${2:source})"
+  "Object.create":
+    prefix: "create"
+    body: "Object.create(${1:proto})"
+  "Object.defineProperties":
+    prefix: "defineProperties"
+    body: """
+          Object.defineProperties(${1:obj},{
+          \t"${2:property}": {
+          \t\tvalue: ${2:value},
+          \t\twritable: ${3:false},
+          \t\tenumerable: ${4:false},
+          \t\tconfigurable: ${5:false},
+          }
+          })
+          """
